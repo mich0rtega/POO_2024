@@ -22,15 +22,17 @@ palabra = "hola"
 lista = {10,20,30,40}
 lista2 = {"hola", True,'@',30,1.8}
 
-tupla =( 
-    "Hola","Como""."estas" 
-    )
-diccionario = (
-    "nombre" : "Daniel"
-    "Apellido: " : "Contreras Rammirez"
-    "Especialidad: " : "TI"
-    "Edad:" : "20"
+tupla = (
+    "Hola", "Como", "estas"
 )
+
+diccionario = {
+    "nombre": "Daniel",
+    "Apellido": "Contreras Ramirez",
+    "Especialidad": "TI",
+    "Edad": 20
+}
+
 
 #Mostrar los tipos de datos
 print (type(entero))

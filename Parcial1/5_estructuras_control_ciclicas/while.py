@@ -34,3 +34,4 @@ while i <=10:
     print(f"{tabla}, x {i} = {multi}")
     i+=1
 
+

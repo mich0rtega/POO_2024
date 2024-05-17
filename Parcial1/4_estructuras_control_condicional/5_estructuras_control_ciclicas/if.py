@@ -12,60 +12,51 @@ Tienes 4 variantes de if
 
 """
 
-#Ejemplo 1 if simple
-color = input("Inhresa un color: ")
-if color=="rojo":
-  print ("Soy el color rojo")
-
-  
-#Ejemplo 2 if compuesto
-color = input("Inhresa un color: ")
+# Ejemplo 1 (if simple)
+color = input("Ingresa un color: ")
 if color == "rojo":
-  print ("Soy el color rojo")
+    print("Soy el color rojo")
+
+# Ejemplo 2 (if compuesto)
+color = input("Ingresa un color: ")
+if color == "rojo":
+    print("Soy el color rojo")
 else:
-  print ("No soy color rojo, soy otra cosa")
+    print("No soy color rojo, soy otra cosa")
 
-
- #Ejemplo 3 if anidado
-color = input("Inhresa un color: ")
+# Ejemplo 3 (if anidado)
+color = input("Ingresa un color: ")
 if color == "rojo":
-  print ("Soy el color rojo")
-if color != "rojo":
-#else:
- print ("No soy color rojo, soy otra cosa")
+    print("Soy el color rojo")
+elif color != "rojo":
+    print("No soy color rojo, soy otra cosa")
 
- #Ejemplo 4 if y elif
-color = input("Inhresa un color: ")
+# Ejemplo 4 (if y elif)
+color = input("Ingresa un color: ")
 if color == "rojo":
-  print ("Soy el color rojo")
-elif color =="amarillo":
-  print("Soy el color amarillos")
+    print("Soy el color rojo")
+elif color == "amarillo":
+    print("Soy el color amarillo")
 elif color == "azul":
-  print("Soy el color azul")
+    print("Soy el color azul")
 else:
- print("No soy ningun color")
+    print("No soy ningún color")
 
- #Ejemplo: crear un programa que solicite el numero de la semana 
- # e imprima en pantalla el dia que le corresponde
-
- dia = input("Ingrese el dia de la semana")
-
+# Programa para solicitar el número de la semana
+dia = input("Ingrese el día de la semana (1 al 7): ")
 if dia == "1":
-  print("Lunes")
+    print("Lunes")
 elif dia == "2":
-  print("Martes")
+    print("Martes")
 elif dia == "3":
-  print("Miercoles")
+    print("Miércoles")
 elif dia == "4":
-   print("Jueves")
-elif dia == "2":
-  print("Martes")
-elif dia == "3":
-  print("Miercoles")
-elif dia == "4":
-   print("Jueves")
-   
-
-
-  
-  
+    print("Jueves")
+elif dia == "5":
+    print("Viernes")
+elif dia == "6":
+    print("Sábado")
+elif dia == "7":
+    print("Domingo")
+else:
+    print("Número de día inválido")

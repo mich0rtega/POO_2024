@@ -12,8 +12,3 @@ while respuesta.lower() == "si":
     print(f"A pagar (con IVA): {precio_neto:.2f}")
     respuesta = input("¿Desea realizar el proceso nuevamente? (si/no): ")
 
-
-
-
-
-

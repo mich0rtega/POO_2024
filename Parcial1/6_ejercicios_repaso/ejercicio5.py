@@ -6,3 +6,4 @@ num2 = int(input("Ingrese el primer numero"))
 for numero in range(num, num2 + 1):
   print(f"Números entre {num} y {num2}:")
   print(numero)
+  

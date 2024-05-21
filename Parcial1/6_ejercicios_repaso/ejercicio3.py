@@ -9,9 +9,10 @@ for num in range (0,61):
     acumulador+= num
     
 
-
+#while
 i = 0
 while i <= 60:
      cuadrado_while = i * i
      print(f"num: {i}, cuadrado: {cuadrado_while}")
      i+=1
+     

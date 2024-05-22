@@ -2,24 +2,24 @@
 Operadores en Python
 
 Aritmeticos 
-Operator	Name	Example	Try it
-+	Addition	x + y	
--	Subtraction	x - y	
-*	Multiplication	x * y	
-/	Division	x / y	
-%	Modulus	x % y	
-*	Exponentiation	x * y	
-//	Floor division	x // y
+Operator	Name	   Example	Try it
++	        Addition	  x + y	
+-       Subtraction 	  x - y	
+*	  Multiplication	  x * y	
+/	        Division	  x / y	
+%	         Modulus	  x % y	
+*	     Exponentiation	  x * y	
+//	  Floor division	  x // y
 
 
 Relacionales
 Operator	Name	Example	
-==	Equal	x == y	
-!=	Not equal	x != y	
-> 	Greaterthan	x > y	
-<	Less than	x < y	
->=	Greater than or equal to	x >= y	
-<=	Less than or equal to	x <= y
+==	       Equal	 x == y	
+!=	      Not equal	  x != y	
+> 	     Greaterthan	x > y	
+<	     Less than	     x < y	
+>=	  Greater than or equal to	x >= y	
+<=	   Less than or equal to	x <= y
 
 Logicos
 Operator	Description	Example	

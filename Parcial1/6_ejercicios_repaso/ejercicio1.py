@@ -12,3 +12,5 @@ print (type(continente))
 
 # pais = "Mexico" es un str
 # Continente = "America" es un str
+
+x = 30

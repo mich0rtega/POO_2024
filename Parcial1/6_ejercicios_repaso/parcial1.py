@@ -26,7 +26,7 @@ while respuesta.lower() == "si":
     print(f"Promedio total sis: {promedio_final_sis}")
     print(f"Promedio total dia: {promedio_final_dia}")
 
-    if promedio_final_sis <=120 and promedio_final_sis <=80:
+    if promedio_final_sis <=120 and promedio_final_dia <=80:
      print("Presenta presion normal")
     
 

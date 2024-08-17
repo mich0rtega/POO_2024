@@ -1,91 +1,79 @@
-import mysql.connector
-from mysql.connector import Error
+#Importes
+from empleados import empleado
+from funciones import *
+#Menu principal
+def menu_principal():
+    while True:
+        borrarPantalla()
+        print("""
+        .::  Menu Principal ::. 
+            1.- Registrar Empleado
+            2.- Actualizar Empleado
+            3.- Eliminar Empleado
+            4.- Leer Empleado
+            5.- Salir 
+        """)
+        opcion = input("\t Elige una opción: ").upper()
 
-def crear_conexion():
-    try:
-        conexion = mysql.connector.connect(
-            host='localhost',
-            database='mi_empresa',
-            user='root',
-            password=''
-        )
-        if conexion.is_connected():
-            print("Conexión exitosa a la base de datos")
-            return conexion
-    except Error as e:
-        print(f"Error al conectar a la base de datos: {e}")
-        return None
-
-def cerrar_conexion(conexion):
-    if conexion.is_connected():
-        conexion.close()
-        print("Conexión cerrada")
-
-def crear_empleado(conexion, nombre, puesto, salario):
-    cursor = conexion.cursor()
-    query = "INSERT INTO empleados (nombre, puesto, salario) VALUES (%s, %s, %s)"
-    valores = (nombre, puesto, salario)
-    cursor.execute(query, valores)
-    conexion.commit()
-    print("Empleado creado exitosamente")
-
-def leer_empleados(conexion):
-    cursor = conexion.cursor()
-    query = "SELECT * FROM empleados"
-    cursor.execute(query)
-    resultados = cursor.fetchall()
-    for fila in resultados:
-        print(f"ID: {fila[0]}, Nombre: {fila[1]}, Puesto: {fila[2]}, Salario: {fila[3]}")
-
-def actualizar_empleado(conexion, id, nombre, puesto, salario):
-    cursor = conexion.cursor()
-    query = "UPDATE empleados SET nombre = %s, puesto = %s, salario = %s WHERE id = %s"
-    valores = (nombre, puesto, salario, id)
-    cursor.execute(query, valores)
-    conexion.commit()
-    print("Empleado actualizado exitosamente")
-
-def eliminar_empleado(conexion, id):
-    cursor = conexion.cursor()
-    query = "DELETE FROM empleados WHERE id = %s"
-    valor = (id,)
-    cursor.execute(query, valor)
-    conexion.commit()
-    print("Empleado eliminado exitosamente")
-
-def menu():
-    conexion = crear_conexion()
-    if conexion:
-        while True:
-            print("\n--- Menú de Opciones ---")
-            print("1. Crear empleado")
-            print("2. Leer empleados")
-            print("3. Actualizar empleado")
-            print("4. Eliminar empleado")
-            print("5. Salir")
-            opcion = input("Elige una opción: ")
-
-            if opcion == '1':
-                nombre = input("Nombre: ")
-                puesto = input("Puesto: ")
-                salario = input("Salario: ")
-                crear_empleado(conexion, nombre, puesto, salario)
-            elif opcion == '2':
-                leer_empleados(conexion)
-            elif opcion == '3':
-                id = input("ID del empleado a actualizar: ")
-                nombre = input("Nuevo nombre: ")
-                puesto = input("Nuevo puesto: ")
-                salario = input("Nuevo salario: ")
-                actualizar_empleado(conexion, id, nombre, puesto, salario)
-            elif opcion == '4':
-                id = input("ID del empleado a eliminar: ")
-                eliminar_empleado(conexion, id)
-            elif opcion == '5':
-                cerrar_conexion(conexion)
-                break
+        if opcion == '1'or opcion == 'REGISTRAR EMPLEADO':
+            borrarPantalla()
+            print("\n \t ..:: Registrar Empleado ::..")
+            nombre = input("\t Nombre del empleado: ")
+            puesto = input("\t Puesto: ")
+            salario = input("\t Salario: ")
+            nuevo_empleado = empleado.Empleado(nombre, puesto, salario)
+            if nuevo_empleado.registrar():
+                print(f"\n \t {nombre} registrado correctamente.")
             else:
-                print("Opción no válida. Inténtalo de nuevo.")
+                print(f'\n \t**Error al registrar el empleado, por favor intente de nuevo**...')
+            esperarTecla()
 
-if __name__ == "_main_":
-    menu()
+        elif opcion == '2' or opcion=='ACTUALIZAR EMPLEADO':
+            borrarPantalla()
+            print("\n \t ..:: Actualizar Empleado ::..")
+            id_empleado = input("\t ID del empleado: ")
+            nombre = input("\t Nuevo nombre del empleado: ")
+            puesto = input("\t Nuevo puesto: ")
+            salario = input("\t Nuevo salario: ")
+            empleado_actualizado = empleado.Empleado(nombre, puesto, salario)
+            if empleado_actualizado.actualizar(id_empleado):
+                print(f"\n \t Empleado {id_empleado} actualizado correctamente.")
+            else:
+                print(f'\n \t**Error al actualizar el empleado, por favor intente de nuevo**...')
+            esperarTecla()
+
+        elif opcion == '3' or opcion=='ELIMINAR EMPLEADO':
+            borrarPantalla()
+            print("\n \t ..:: Eliminar Empleado ::..")
+            id_empleado = input("\t ID del empleado: ")
+            if empleado.Empleado.eliminar(id_empleado):
+                print(f"\n \t Empleado {id_empleado} eliminado correctamente.")
+            else:
+                print(f'\n \t**Error al eliminar el empleado, por favor intente de nuevo**...')
+            esperarTecla()
+
+        elif opcion == '4' or opcion=='VER EMPLEADO':
+            borrarPantalla()
+            print("\n \t ..:: Ver Empleado ::..")
+            id_empleado = input("\t ID del empleado: ")
+            empleado_info = empleado.Empleado.ver(id_empleado)
+            if empleado_info:
+                print("\n \t Información del Empleado:")
+                print(f"\t ID: {empleado_info[0]}")
+                print(f"\t Nombre: {empleado_info[1]}")
+                print(f"\t Puesto: {empleado_info[2]}")
+                print(f"\t Salario: {empleado_info[3]}")
+            else:
+                print("\n \t Empleado no encontrado.")
+            esperarTecla()
+
+        elif opcion == '5' or opcion=='SALIR':
+            print("\n\t.. ¡Gracias Bye! ...")
+            break
+
+        else:
+            print("\n \t \t Opción no válida. Intenta de nuevo.")
+            esperarTecla()
+
+if __name__ == "__main__":
+    menu_principal()
